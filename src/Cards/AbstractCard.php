@@ -9,13 +9,13 @@ namespace MPorembski\CardMaker\Cards;
  */
 abstract class AbstractCard
 {
-    const CAPTION_TYPE_BOLD = 2;
+    public const CAPTION_TYPE_BOLD = 2;
 
-    const CAPTION_TYPE_BOLD_ITALIC = 1;
+    public const CAPTION_TYPE_BOLD_ITALIC = 1;
 
-    const CAPTION_TYPE_UNDERLINE = 3;
+    public const CAPTION_TYPE_UNDERLINE = 3;
 
-    const LINE_TEXT = '---';
+    public const LINE_TEXT = '---';
 
     /**
      * Card Related vars:
@@ -73,6 +73,12 @@ abstract class AbstractCard
 
     protected $maxWidth = 403;
 
+    protected $titleHeight;
+    protected $tagHeight;
+    protected $cardLevelX;
+    protected $cardLevelY;
+    protected $descriptionHeight;
+
     /**
      * printing related data:
      */
@@ -123,8 +129,12 @@ abstract class AbstractCard
                 $this->cardHeight
             );
         }
-        $this->textTitleSize = $this->gdPrinter->fitTextSize($this->textTitleSize, $this->textTitle,
-            $this->maxTitleWidth, 'w');
+        $this->textTitleSize = $this->gdPrinter->fitTextSize(
+            $this->textTitleSize,
+            $this->textTitle,
+            $this->maxTitleWidth,
+            'w'
+        );
         $this->gdPrinter->centerText($this->textTitle, $this->titleHeight, $this->textTitleSize, 'w');
 
         $this->textTagSize = $this->gdPrinter->fitTextSize($this->textTagSize, $this->textTag, $this->maxTagWidth, 'n');
@@ -218,7 +228,8 @@ abstract class AbstractCard
                 $this->cardLevelY,
                 'b',
                 $this->level,
-                true);
+                true
+            );
         }
 
         $writeHeight = $this->descriptionHeight;
@@ -230,8 +241,12 @@ abstract class AbstractCard
             } else {
                 $captionFont = 'n';
             }
-            $this->textCaptionSize = $this->gdPrinter->fitTextSize($this->textCaptionSize, $this->textCaption,
-                $this->maxCaptionWidth, $captionFont);
+            $this->textCaptionSize = $this->gdPrinter->fitTextSize(
+                $this->textCaptionSize,
+                $this->textCaption,
+                $this->maxCaptionWidth,
+                $captionFont
+            );
             $writeHeight += (int)($this->textCaptionSize * 1.5);
             $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, $captionFont);
             $writeHeight -= (int)($this->textCaptionSize * 1.4);

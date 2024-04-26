@@ -9,78 +9,78 @@ namespace MPorembski\CardMaker\Entity;
  */
 class Layer
 {
-    const CARD_ADVENTURES = 1;
+    public const CARD_ADVENTURES = 1;
 
-    const CARD_DRAGON1 = 2;
+    public const CARD_DRAGON1 = 2;
 
-    const CARD_DRAGON2 = 3;
+    public const CARD_DRAGON2 = 3;
 
-    const CARD_DRAGON3 = 4;
+    public const CARD_DRAGON3 = 4;
 
-    const CARD_DUNGEON = 5;
+    public const CARD_DUNGEON = 5;
 
-    const CARD_EQUIPMENT = 6;
+    public const CARD_EQUIPMENT = 6;
 
-    const CARD_HIGHLAND = 7;
+    public const CARD_HIGHLAND = 7;
 
-    const CARD_RELICT = 8;
+    public const CARD_RELICT = 8;
 
-    const CARD_SPELL = 9;
+    public const CARD_SPELL = 9;
 
-    const CARD_TREASURE = 10;
+    public const CARD_TREASURE = 10;
 
-    const CARD_BRIDGE = 11;
+    public const CARD_BRIDGE = 11;
 
-    const CARD_CITY = 12;
+    public const CARD_CITY = 12;
 
-    const CARD_HARBINGER = 13;
+    public const CARD_HARBINGER = 13;
 
-    const CARD_NETHER = 14;
+    public const CARD_NETHER = 14;
 
-    const CARD_VAMPIRE = 15;
+    public const CARD_VAMPIRE = 15;
 
-    const CARD_WARLOCK = 16;
+    public const CARD_WARLOCK = 16;
 
-    const CARD_QUEST_REWARD = 17;
+    public const CARD_QUEST_REWARD = 17;
 
-    const CARD_ALIGNMENT_GOOD = 18;
+    public const CARD_ALIGNMENT_GOOD = 18;
 
-    const CARD_ALIGNMENT_EVIL = 19;
+    public const CARD_ALIGNMENT_EVIL = 19;
 
-    const CARD_ALIGNMENT_NEUTRAL = 20;
+    public const CARD_ALIGNMENT_NEUTRAL = 20;
 
-    const CARD_ARTEFACT = 21;
+    public const CARD_ARTEFACT = 21;
 
-    const CARD_KRESY = 22;
+    public const CARD_KRESY = 22;
 
-    const CARD_BLACKSMITH = 23;
+    public const CARD_BLACKSMITH = 23;
 
-    const CARD_UNHALLOWED1 = 24;
+    public const CARD_UNHALLOWED1 = 24;
 
-    const CARD_UNHALLOWED2 = 25;
+    public const CARD_UNHALLOWED2 = 25;
 
-    const CARD_GOBLINKING = 26;
+    public const CARD_GOBLINKING = 26;
 
-    const CARD_RATKING = 27;
+    public const CARD_RATKING = 27;
 
-    const CARD_DENIZEN = 28;
+    public const CARD_DENIZEN = 28;
 
-    const CARD_TALISMAN = 29;
+    public const CARD_TALISMAN = 29;
 
-    const CARD_WOODLAND = 30;
+    public const CARD_WOODLAND = 30;
 
-    const CARD_TUNEL = 31;
+    public const CARD_TUNEL = 31;
 
-    const CARD_POTION = 32;
+    public const CARD_POTION = 32;
 
-    const CARD_REMNANT = 33;
+    public const CARD_REMNANT = 33;
 
     // TODO: ..
-    const CARD_HERO_WHITE = 253;
-    const CARD_HERO = 254;
-    const CARD_INFO = 255;
+    public const CARD_HERO_WHITE = 253;
+    public const CARD_HERO = 254;
+    public const CARD_INFO = 255;
 
-    const CARD_LAYERS = [
+    public const CARD_LAYERS = [
         'cardmaker.cards.adventure' => self::CARD_ADVENTURES,
         'cardmaker.cards.dragon1' => self::CARD_DRAGON1,
         'cardmaker.cards.dragon2' => self::CARD_DRAGON2,
@@ -116,7 +116,7 @@ class Layer
         'cardmaker.cards.remnant' => self::CARD_REMNANT,
     ];
 
-    const CARDS_BACK = [
+    public const CARDS_BACK = [
         self::CARD_ADVENTURES => '../var/cardmaker/resources/backs/small/adventure_blue2.png',
         self::CARD_DRAGON1 => '../var/cardmaker/resources/backs/small/dragon1.png',
         self::CARD_DRAGON2 => '../var/cardmaker/resources/backs/small/dragon2.png',

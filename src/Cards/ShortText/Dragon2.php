@@ -1,13 +1,13 @@
 <?php
-  
+
 namespace MPorembski\CardMaker\Cards\ShortText;
 
 use MPorembski\CardMaker\Cards\AbstractCard;
 
-class Dragon2 extends AbstractCard{
-	
-  protected $layerFile = 'dragon2_b';
-  
+class Dragon2 extends AbstractCard
+{
+    protected $layerFile = 'dragon2_b';
+
     protected $imageAreaStartX = 20;
     protected $imageAreaStartY = 110;
     protected $imageAreaWidth = 415;

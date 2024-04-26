@@ -11,25 +11,25 @@ use TCPDF;
  */
 class SheetPrinter
 {
-    const CARD_WIDTH = 39.5;
+    public const CARD_WIDTH = 39.5;
 
-    const CARD_HEIGHT = 62.2;
+    public const CARD_HEIGHT = 62.2;
 
-    const CARD_SPACE = 3;
+    public const CARD_SPACE = 3;
 
-    const CARD_TOP = 5;
+    public const CARD_TOP = 5;
 
-    const CARD_LEFT = 18;
+    public const CARD_LEFT = 18;
 
-    const CARD_B_WIDTH = 128;
+    public const CARD_B_WIDTH = 128;
 
-    const CARD_B_HEIGHT = 103;
+    public const CARD_B_HEIGHT = 103;
 
-    const CARD_B_SPACE = 0;
+    public const CARD_B_SPACE = 0;
 
-    const CARD_B_TOP = 3;
+    public const CARD_B_TOP = 3;
 
-    const CARD_B_LEFT = 15;
+    public const CARD_B_LEFT = 15;
 
     private $smallCards = [];
 
@@ -60,12 +60,12 @@ class SheetPrinter
     {
         $pdf = $this->preparePDF();
 
-        $sheets = array_chunk($this->smallCards,18);
-        foreach($sheets as $sheet) {
+        $sheets = array_chunk($this->smallCards, 18);
+        foreach ($sheets as $sheet) {
             !empty($sheet) && $this->printSmallCardSheet($sheet, $pdf);
         }
-        $sheets = array_chunk($this->bigCards,4);
-        foreach($sheets as $sheet) {
+        $sheets = array_chunk($this->bigCards, 4);
+        foreach ($sheets as $sheet) {
             !empty($sheet) && $this->printBigCardSheet($sheet, $pdf);
         }
         $pdf->Output('card_sheet.pdf', 'I');
@@ -109,19 +109,27 @@ class SheetPrinter
             'color' => [100, 100, 100]
         ];
         for ($i = 0; $i < 7; $i++) {
-            $pdf->Line(self::CARD_LEFT - self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE), 0,
+            $pdf->Line(
                 self::CARD_LEFT - self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE),
-                200, $style);
+                0,
+                self::CARD_LEFT - self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                200,
+                $style
+            );
         }
         for ($j = 0; $j < 4; $j++) {
-            $pdf->Line(0, self::CARD_TOP + self::CARD_SPACE / 2 + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
+            $pdf->Line(
+                0,
+                self::CARD_TOP + self::CARD_SPACE / 2 + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
                 300,
-                self::CARD_TOP + self::CARD_SPACE / 2 + $j * (self::CARD_HEIGHT + self::CARD_SPACE), $style);
+                self::CARD_TOP + self::CARD_SPACE / 2 + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
+                $style
+            );
         }
     }
 
     /**
-     * @param $files
+     * @param       $files
      * @param TCPDF $pdf
      */
     private function printSmallCardSheet($files, TCPDF $pdf): void
@@ -186,12 +194,11 @@ class SheetPrinter
     }
 
     /**
-     * @param $files
+     * @param       $files
      * @param TCPDF $pdf
      */
     public function printBigCardSheet($files, TCPDF $pdf)
     {
-
         $pdf->AddPage();
         $k = 0;
         for ($j = 0; $j < 2; $j++) {

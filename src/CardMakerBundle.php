@@ -2,10 +2,9 @@
 
 namespace MPorembski\CardMaker;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use MPorembski\CardMaker\DependencyInjection\CardMakerExtension;
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class CardMakerBundle extends AbstractBundle
 {

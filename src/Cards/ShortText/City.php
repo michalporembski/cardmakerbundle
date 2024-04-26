@@ -1,13 +1,13 @@
 <?php
-  
+
 namespace MPorembski\CardMaker\Cards\ShortText;
 
 use MPorembski\CardMaker\Cards\AbstractCard;
 
-class City extends AbstractCard{
-   
-  protected $layerFile = 'city_b';
-  
+class City extends AbstractCard
+{
+    protected $layerFile = 'city_b';
+
     protected $imageAreaStartX = 20;
     protected $imageAreaStartY = 110;
     protected $imageAreaWidth = 415;

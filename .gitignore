@@ -1,5 +1,6 @@
 /vendor/
 /.idea/
+/tmp/
 .env
 .php-cs-fixer.cache
 .phpunit.result.cache

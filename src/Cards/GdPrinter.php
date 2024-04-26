@@ -278,11 +278,29 @@ class GdPrinter
         list($src2w, $src2h, $type, $attr) = getimagesize($this->getLayerFile());
         $cardLayer = imagecreatefrompng($this->getLayerFile());
         if ($src2w < 260) {
-            imagecopyresized($this->gdResource, $cardLayer, (2 * $src2w - $this->cardWidth) / -2,
-                (2 * $src2h - $this->cardHeight) / -2, 0, 0, 2 * $src2w, 2 * $src2h, $src2w, $src2h);
+            imagecopyresized(
+                $this->gdResource,
+                $cardLayer,
+                (2 * $src2w - $this->cardWidth) / -2,
+                (2 * $src2h - $this->cardHeight) / -2,
+                0,
+                0,
+                2 * $src2w,
+                2 * $src2h,
+                $src2w,
+                $src2h
+            );
         } else {
-            imagecopy($this->gdResource, $cardLayer, ($src2w - $this->cardWidth) / -2,
-                ($src2h - $this->cardHeight) / -2, 0, 0, $src2w, $src2h);
+            imagecopy(
+                $this->gdResource,
+                $cardLayer,
+                ($src2w - $this->cardWidth) / -2,
+                ($src2h - $this->cardHeight) / -2,
+                0,
+                0,
+                $src2w,
+                $src2h
+            );
         }
         imagedestroy($cardLayer);
     }

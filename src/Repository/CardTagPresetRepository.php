@@ -12,49 +12,49 @@ use MPorembski\CardMaker\Entity\Layer;
  */
 class CardTagPresetRepository
 {
-    const CARD_TAG_ENEMY_ANIMAL = 1;
+    public const CARD_TAG_ENEMY_ANIMAL = 1;
 
-    const CARD_TAG_ENEMY_CULTIST = 2;
+    public const CARD_TAG_ENEMY_CULTIST = 2;
 
-    const CARD_TAG_ENEMY_CONSTRUCT = 3;
+    public const CARD_TAG_ENEMY_CONSTRUCT = 3;
 
-    const CARD_TAG_ENEMY_DEAMON = 4;
+    public const CARD_TAG_ENEMY_DEAMON = 4;
 
-    const CARD_TAG_ENEMY_DRAGON = 5;
+    public const CARD_TAG_ENEMY_DRAGON = 5;
 
-    const CARD_TAG_ENEMY_ELEMENTAL = 6;
+    public const CARD_TAG_ENEMY_ELEMENTAL = 6;
 
-    const CARD_TAG_ENEMY_FAE = 7;
+    public const CARD_TAG_ENEMY_FAE = 7;
 
-    const CARD_TAG_ENEMY_LAW = 8;
+    public const CARD_TAG_ENEMY_LAW = 8;
 
-    const CARD_TAG_ENEMY_MONSTER = 9;
+    public const CARD_TAG_ENEMY_MONSTER = 9;
 
-    const CARD_TAG_ENEMY_NORM = 10;
+    public const CARD_TAG_ENEMY_NORM = 10;
 
-    const CARD_TAG_ENEMY_OUTLAW = 11;
+    public const CARD_TAG_ENEMY_OUTLAW = 11;
 
-    const CARD_TAG_ENEMY_SPIRIT = 12;
+    public const CARD_TAG_ENEMY_SPIRIT = 12;
 
-    const CARD_TAG_ENEMY_UNDEAD = 13;
+    public const CARD_TAG_ENEMY_UNDEAD = 13;
 
-    const CARD_TAG_EVENT = 14;
+    public const CARD_TAG_EVENT = 14;
 
-    const CARD_TAG_ITEM = 15;
+    public const CARD_TAG_ITEM = 15;
 
-    const CARD_TAG_FOLLOWER = 16;
+    public const CARD_TAG_FOLLOWER = 16;
 
-    const CARD_TAG_MAGIC_ITEM = 17;
+    public const CARD_TAG_MAGIC_ITEM = 17;
 
-    const CARD_TAG_MOON_EVENT = 18;
+    public const CARD_TAG_MOON_EVENT = 18;
 
-    const CARD_TAG_PLACE = 19;
+    public const CARD_TAG_PLACE = 19;
 
-    const CARD_TAG_SPELL = 20;
+    public const CARD_TAG_SPELL = 20;
 
-    const CARD_TAG_STRANGER = 21;
+    public const CARD_TAG_STRANGER = 21;
 
-    const CARD_TAG_PRESETS = [
+    public const CARD_TAG_PRESETS = [
         [
             'name' => 'Zdarzenie',
             'layers' => [
@@ -317,7 +317,7 @@ class CardTagPresetRepository
         $result = [];
         foreach (self::CARD_TAG_PRESETS as $tag => $layers) {
             $cardTagPreset = new CardTagPreset();
-            $cardTagPreset->init($tag, $layers);
+            $cardTagPreset->init($layers['name'], $layers);
             $result[] = $cardTagPreset;
         }
 
@@ -334,7 +334,8 @@ class CardTagPresetRepository
         $result = [];
         foreach (self::CARD_TAG_PRESETS as $tag => $layers) {
             if (in_array($layer, $layers)) {
-                $cardTagPreset = new CardTagPreset($tag, $layers);
+                $cardTagPreset = new CardTagPreset();
+                $cardTagPreset->init($layers['name'], $layers);
                 $result[] = $cardTagPreset;
             }
         }

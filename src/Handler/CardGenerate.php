@@ -60,19 +60,19 @@ use MPorembski\CardMaker\Entity\Layer;
  */
 class CardGenerate implements CardGenerateInterface
 {
-    const CARD_LAYOUT_SIZE = [
+    public const CARD_LAYOUT_SIZE = [
         'cardmaker.layout-size.auto' => 0,
         'cardmaker.layout-size.small-text' => 1,
         'cardmaker.layout-size.big-text' => 2
     ];
 
-    const CAPTION_TYPE_NONE = 0;
+    public const CAPTION_TYPE_NONE = 0;
 
-    const CAPTION_TYPE_ITALIC = 1;
+    public const CAPTION_TYPE_ITALIC = 1;
 
-    const CAPTION_TYPE_REGULAR = 2;
+    public const CAPTION_TYPE_REGULAR = 2;
 
-    const CAPTION_TYPES = [
+    public const CAPTION_TYPES = [
         'cardmaker.caption.none' => self::CAPTION_TYPE_NONE,
         'cardmaker.caption.italic' => self::CAPTION_TYPE_ITALIC,
         'cardmaker.caption.regular' => self::CAPTION_TYPE_REGULAR,
@@ -100,7 +100,7 @@ class CardGenerate implements CardGenerateInterface
         $card->setTextCaption($generateCardCommand->getCaption());
         $card->setCaptionType($generateCardCommand->getCaptionType());
         if (!empty($generateCardCommand->getPlaces())) {
-            $card->setTextCaption(implode(' • ',$generateCardCommand->getPlaces()));
+            $card->setTextCaption(implode(' • ', $generateCardCommand->getPlaces()));
             $card->setCaptionType(AbstractCard::CAPTION_TYPE_UNDERLINE);
         }
         // TODO: explode text by lines only if auto-line-break disabled
@@ -129,7 +129,7 @@ class CardGenerate implements CardGenerateInterface
         }
         $name = $generateCardCommand->getLayer() .
             '_' . substr($generateCardCommand->getTitle(), 0, 20) .
-            '_' . substr(base_convert(md5(json_encode($generateCardCommand->getCardData())),16,36), 0, 5);
+            '_' . substr(base_convert(md5(json_encode($generateCardCommand->getCardData())), 16, 36), 0, 5);
 
         return $name;
     }
@@ -187,6 +187,9 @@ class CardGenerate implements CardGenerateInterface
         $classes = $this->getClasses($layoutSize);
         $class = $classes[$layer] ?? reset($classes);
 
+        if (!is_string($class)) {
+            throw new \Exception('class does not exists');
+        }
         return new $class();
     }
 

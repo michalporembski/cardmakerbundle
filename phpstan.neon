@@ -1,7 +1,8 @@
 parameters:
-	level: 9
-	paths:
-		- src
-		- tests
-	excludePaths:
-		- tests/bootstrap.php
+    tmpDir: ./tmp
+    level: 3
+    paths:
+        - src
+        - tests
+    excludePaths:
+        - tests/bootstrap.php

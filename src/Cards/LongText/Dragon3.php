@@ -4,10 +4,10 @@ namespace MPorembski\CardMaker\Cards\LongText;
 
 use MPorembski\CardMaker\Cards\AbstractCard;
 
-class Dragon3 extends AbstractCard{
-	
-  protected $layerFile = 'dragon3_a';
-  
+class Dragon3 extends AbstractCard
+{
+    protected $layerFile = 'dragon3_a';
+
     protected $imageAreaStartX = 25;
     protected $imageAreaStartY = 110;
     protected $imageAreaWidth = 415;
@@ -20,11 +20,10 @@ class Dragon3 extends AbstractCard{
     protected $cardLevelX = 390;
     protected $cardLevelY = 670;
 
-      protected $maxTitleWidth = 380;
+    protected $maxTitleWidth = 380;
     protected $maxTagWidth = 230;
     protected $maxCaptionWidth = 380;
 
     protected $maxWriteHeight = 670;
     protected $dummyTriangleStart = 560;
-
 }
