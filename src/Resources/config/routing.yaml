@@ -1,0 +1,5 @@
+controllers:
+  resource:
+    path: ../../Controller/
+    namespace: MPorembski\CardMaker\Controller
+  type: attribute

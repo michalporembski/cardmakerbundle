@@ -1,0 +1,4 @@
+services:
+    cardmaker.handler.card_generate:
+        class: CardMaker\Handler\CardGenerate
+

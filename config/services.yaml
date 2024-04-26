@@ -1,0 +1,14 @@
+imports:
+  - { resource: 'services/controllers.yaml' }
+
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  MPorembski\SampleModule\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Controller/'
