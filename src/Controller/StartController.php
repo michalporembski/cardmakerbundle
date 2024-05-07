@@ -1,6 +1,6 @@
 <?php
 
-namespace MPorembski\SampleModule\Controller;
+namespace MPorembski\CardMaker\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
