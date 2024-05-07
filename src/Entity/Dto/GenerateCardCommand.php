@@ -2,6 +2,7 @@
 
 namespace MPorembski\CardMaker\Entity\Dto;
 
+use MPorembski\CardMaker\Entity\Layer;
 use MPorembski\CardMaker\Handler\CardGenerate;
 
 /**
@@ -11,50 +12,48 @@ use MPorembski\CardMaker\Handler\CardGenerate;
  */
 class GenerateCardCommand
 {
-    /**
-     * @var int|null
-     */
-    private $layer;
+    private int $layer = Layer::CARD_ADVENTURES;
 
     /**
-     * @var int|null
+     * @deprecated
+     * @var int
      */
-    private $mode;
+    private int $mode = 0;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $title;
+    private string $title = '';
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $tag;
+    private string $tag ='';
 
     /**
      * @var int
      */
-    private $captionType = CardGenerate::CAPTION_TYPE_NONE;
+    private int $captionType = CardGenerate::CAPTION_TYPE_NONE;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $caption;
+    private string $caption = '';
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $level;
+    private string $level = '0';
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $text;
+    private string $text = '';
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $story;
+    private string $story = '';
 
     /**
      * @var string[]
@@ -62,9 +61,9 @@ class GenerateCardCommand
     private $places = [];
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $image;
+    private string $image = '';
 
     //    /**
     //     * @var string|null
@@ -72,9 +71,9 @@ class GenerateCardCommand
     //    private $imageUrl;
 
     /**
-     * @var int|null
+     * @var int
      */
-    private $textSize;
+    private int $textSize = 21;
 
     /**
      * Template type: auto/short text/long text
@@ -89,9 +88,9 @@ class GenerateCardCommand
     private $save = false;
 
     /**
-     * @return int|null
+     * @return int
      */
-    public function getLayer()
+    public function getLayer(): int
     {
         return $this->layer;
     }
@@ -105,17 +104,19 @@ class GenerateCardCommand
     }
 
     /**
-     * @return int|null
+     * @return int
      */
-    public function getMode()
+    public function getMode(): int
     {
         return $this->mode;
     }
 
     /**
-     * @param int|null $mode
+     * @param int $mode
+     *
+     * @return void
      */
-    public function setMode($mode)
+    public function setMode(int $mode):void
     {
         $this->mode = $mode;
     }
@@ -137,17 +138,17 @@ class GenerateCardCommand
     }
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getTag()
+    public function getTag(): string
     {
         return $this->tag;
     }
 
     /**
-     * @param null|string $tag
+     * @param string $tag
      */
-    public function setTag($tag)
+    public function setTag(string $tag): void
     {
         $this->tag = $tag;
     }
@@ -185,17 +186,19 @@ class GenerateCardCommand
     }
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getLevel()
+    public function getLevel(): string
     {
         return $this->level;
     }
 
     /**
-     * @param null|string $level
+     * @param string $level
+     *
+     * @return void
      */
-    public function setLevel($level)
+    public function setLevel(string $level): void
     {
         $this->level = $level;
     }
@@ -217,9 +220,9 @@ class GenerateCardCommand
     }
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getStory()
+    public function getStory(): string
     {
         return $this->story;
     }
@@ -227,7 +230,7 @@ class GenerateCardCommand
     /**
      * @param null|string $story
      */
-    public function setStory($story)
+    public function setStory(string $story): void
     {
         $this->story = $story;
     }

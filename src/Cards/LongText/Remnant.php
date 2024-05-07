@@ -13,31 +13,31 @@ class Remnant extends AbstractCard
 {
     protected $layerFile = 'remnant_a';
 
-    protected $imageAreaStartX = 25;
+    protected int $imageAreaStartX = 25;
 
-    protected $imageAreaStartY = 110;
+    protected int $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 410;
+    protected int $imageAreaWidth = 410;
 
-    protected $imageAreaHeight = 230;
+    protected int $imageAreaHeight = 230;
 
-    protected $titleHeight = 89;
+    protected int $titleHeight = 89;
 
-    protected $tagHeight = 331;
+    protected int $tagHeight = 331;
 
-    protected $descriptionHeight = 355;
+    protected int $descriptionHeight = 355;
 
-    protected $cardLevelX = 391;
+    protected int $cardLevelX = 391;
 
-    protected $cardLevelY = 671;
+    protected int $cardLevelY = 671;
 
-    protected $maxTitleWidth = 380;
+    protected int $maxTitleWidth = 380;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
+    protected int $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 560;
+    protected int $dummyTriangleStart = 560;
 }

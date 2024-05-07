@@ -13,31 +13,31 @@ class Equpiment extends AbstractCard
 {
     protected $layerFile = 'equipment_a';
 
-    protected $imageAreaStartX = 25;
+    protected int $imageAreaStartX = 25;
 
-    protected $imageAreaStartY = 110;
+    protected int $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 410;
+    protected int $imageAreaWidth = 410;
 
-    protected $imageAreaHeight = 240;
+    protected int $imageAreaHeight = 240;
 
-    protected $titleHeight = 87;
+    protected int $titleHeight = 87;
 
-    protected $tagHeight = 331;
+    protected int $tagHeight = 331;
 
-    protected $descriptionHeight = 350;
+    protected int $descriptionHeight = 350;
 
-    protected $cardLevelX = 387;
+    protected int $cardLevelX = 387;
 
-    protected $cardLevelY = 671;
+    protected int $cardLevelY = 671;
 
-    protected $maxTitleWidth = 380;
+    protected int $maxTitleWidth = 380;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
+    protected int $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 560;
+    protected int $dummyTriangleStart = 560;
 }

@@ -8,31 +8,31 @@ class Woodland extends AbstractCard
 {
     protected $layerFile = 'woodland_a';
 
-    protected $imageAreaStartX = 25;
+    protected int $imageAreaStartX = 25;
 
-    protected $imageAreaStartY = 100;
+    protected int $imageAreaStartY = 100;
 
-    protected $imageAreaWidth = 415;
+    protected int $imageAreaWidth = 415;
 
-    protected $imageAreaHeight = 235;
+    protected int $imageAreaHeight = 235;
 
-    protected $titleHeight = 87;
+    protected int $titleHeight = 87;
 
-    protected $tagHeight = 332;
+    protected int $tagHeight = 332;
 
-    protected $descriptionHeight = 350;
+    protected int $descriptionHeight = 350;
 
-    protected $cardLevelX = 390;
+    protected int $cardLevelX = 390;
 
-    protected $cardLevelY = 670;
+    protected int $cardLevelY = 670;
 
-    protected $maxTitleWidth = 380;
+    protected int $maxTitleWidth = 380;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
+    protected int $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 560;
+    protected int $dummyTriangleStart = 560;
 }

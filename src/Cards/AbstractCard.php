@@ -24,7 +24,7 @@ abstract class AbstractCard
      */
     protected $textTitle;
 
-    protected $textTag;
+    protected string $textTag;
 
     protected $textCaption = null;
 
@@ -51,33 +51,33 @@ abstract class AbstractCard
 
     protected $displayImage = true;
 
-    protected $maxTitleWidth = 380;
+    protected int $maxTitleWidth = 380;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
+    protected int $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 560;
+    protected int $dummyTriangleStart = 560;
 
     protected $captionType = 0;
 
-    protected $imageAreaStartX;
+    protected int $imageAreaStartX;
 
-    protected $imageAreaStartY;
+    protected int $imageAreaStartY;
 
-    protected $imageAreaWidth;
+    protected int $imageAreaWidth;
 
-    protected $imageAreaHeight;
+    protected int $imageAreaHeight;
 
     protected $maxWidth = 403;
 
-    protected $titleHeight;
-    protected $tagHeight;
-    protected $cardLevelX;
-    protected $cardLevelY;
-    protected $descriptionHeight;
+    protected int $titleHeight;
+    protected int $tagHeight;
+    protected int $cardLevelX;
+    protected int $cardLevelY;
+    protected int $descriptionHeight;
 
     /**
      * printing related data:
@@ -153,9 +153,11 @@ abstract class AbstractCard
     }
 
     /**
-     * @param $textTag
+     * @param string $textTag
+     *
+     * @return void
      */
-    public function setTextTag($textTag)
+    public function setTextTag(string $textTag): void
     {
         $this->textTag = $textTag;
     }
@@ -278,7 +280,7 @@ abstract class AbstractCard
                 $writeHeight += 5;
             } else {
                 if ($this->dummyTriangleStart < $writeHeight) {
-                    $offset = ($this->dummyTriangleStart - $writeHeight) / 3;
+                    $offset = intval(($this->dummyTriangleStart - $writeHeight) / 3);
                 } else {
                     $offset = 0;
                 }
@@ -295,7 +297,7 @@ abstract class AbstractCard
     {
         foreach ($this->story as $line) {
             if ($this->dummyTriangleStart < $writeHeight) {
-                $offset = ($this->dummyTriangleStart - $writeHeight) / 3;
+                $offset = intval(($this->dummyTriangleStart - $writeHeight) / 3);
             } else {
                 $offset = 0;
             }

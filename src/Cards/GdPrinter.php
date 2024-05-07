@@ -36,13 +36,13 @@ class GdPrinter
     protected $image;
 
     protected $fonts = [
-        'b' => '../var/cardmaker/resources/fonts/caxton_b.ttf',
-        'bi' => '../var/cardmaker/resources/fonts/caxton_bi.ttf',
-        'l' => '../var/cardmaker/resources/fonts/caxton_l.ttf',
-        'li' => '../var/cardmaker/resources/fonts/caxton_li.ttf',
-        'n' => '../var/cardmaker/resources/fonts/caxton_n.ttf',
-        'ni' => '../var/cardmaker/resources/fonts/caxton_ni.ttf',
-        'w' => '../var/cardmaker/resources/fonts/windlass2.ttf'
+        'b' => __DIR__ . '/../../assets/fonts/caxton_b.ttf',
+        'bi' => __DIR__ . '/../../assets/fonts/caxton_bi.ttf',
+        'l' => __DIR__ . '/../../assets/fonts/caxton_l.ttf',
+        'li' => __DIR__ . '/../../assets/fonts/caxton_li.ttf',
+        'n' => __DIR__ . '/../../assets/fonts/caxton_n.ttf',
+        'ni' => __DIR__ . '/../../assets/fonts/caxton_ni.ttf',
+        'w' => __DIR__ . '/../../assets/fonts/windlass2.ttf'
     ];
 
     protected $textColor = null;
@@ -54,12 +54,12 @@ class GdPrinter
     /**
      * init
      *
-     * @param $layerFile
+     * @param                   $layerFile
      * @param UploadedFile|null $image
-     * @param $imageAreaStartX
-     * @param $imageAreaStartY
-     * @param $imageAreaWidth
-     * @param $imageAreaHeight
+     * @param                   $imageAreaStartX
+     * @param                   $imageAreaStartY
+     * @param                   $imageAreaWidth
+     * @param                   $imageAreaHeight
      *
      * @throws \Exception
      */
@@ -107,14 +107,14 @@ class GdPrinter
     }
 
     /**
-     * @param $textSize
-     * @param $text
-     * @param $maxWidth
-     * @param $font
+     * @param int    $textSize
+     * @param string $text
+     * @param int    $maxWidth
+     * @param string $font
      *
-     * @return mixed
+     * @return int
      */
-    public function fitTextSize($textSize, $text, $maxWidth, $font)
+    public function fitTextSize(int $textSize, string $text, int $maxWidth, string $font): int
     {
         $titleWidth = 999;
         while ($titleWidth > $maxWidth) {
@@ -126,29 +126,39 @@ class GdPrinter
     }
 
     /**
-     * @param $size
-     * @param $x
-     * @param $y
-     * @param $font
-     * @param $text
-     * @param bool $white
+     * @param int    $size
+     * @param int    $x
+     * @param int    $y
+     * @param string $font
+     * @param string $text
+     * @param bool   $white
+     *
+     * @return void
      */
-    public function printText($size, $x, $y, $font, $text, $white = false)
+    public function printText(int $size, int $x, int $y, string $font, string $text, bool $white = false): void
     {
         $color = $white ? $this->textColorWhite : $this->textColor;
         imagettftext($this->gdResource, $size, 0, $x, $y, $color, $this->fonts[$font], $text);
     }
 
     /**
-     * @param $text
-     * @param $height
-     * @param $size
-     * @param $font
-     * @param int $offset
-     * @param bool $white
+     * @param string $text
+     * @param int    $height
+     * @param int    $size
+     * @param string $font
+     * @param int    $offset
+     * @param bool   $white
+     *
+     * @return void
      */
-    public function centerText($text, $height, $size, $font, $offset = 0, $white = false)
-    {
+    public function centerText(
+        string $text,
+        int $height,
+        int $size,
+        string $font,
+        int $offset = 0,
+        bool $white = false
+    ): void {
         $color = $white ? $this->textColorWhite : $this->textColor;
         $textWidth = $this->getTextWidth($size, $font, $text);
         $writeStart = floor(($this->cardWidth - $textWidth) / 2) + $offset;
@@ -175,7 +185,7 @@ class GdPrinter
      *
      * @return mixed
      */
-    public function getTextWidth($size, $font, $text)
+    public function getTextWidth(int $size, string $font, string $text)
     {
         $arr = $this->imagettfbbox($size, $font, $text);
 
@@ -188,17 +198,25 @@ class GdPrinter
     protected static $imagettfbboxCache = [];
 
     /**
-     * @param $size
-     * @param $font
-     * @param $text
+     * @param int    $size
+     * @param string $font
+     * @param string $text
      *
-     * @return mixed
+     * @return int[]
      */
-    protected function imagettfbbox($size, $font, $text)
+    protected function imagettfbbox(int $size, string $font, string $text): array
     {
+        if (strlen($text) < 1) {
+            return [
+                0,
+                0,
+                0
+            ];
+        }
+
         $key = $size . ':' . $font . ':' . $text;
         if (empty(self::$imagettfbboxCache[$key])) {
-            self::$imagettfbboxCache[$key] = imagettfbbox($size, 0, $this->fonts[$font], $text);
+            self::$imagettfbboxCache[$key] = \imagettfbbox($size, 0, $this->fonts[$font], $text);
         }
 
         return self::$imagettfbboxCache[$key];
@@ -212,7 +230,7 @@ class GdPrinter
         /**
          * @TODO: this should be injected
          */
-        return '../var/cardmaker/resources/standard_layers/' . $this->layerFile . '.png';
+        return __DIR__ . '/../../assets/standard_layers/' . $this->layerFile . '.png';
     }
 
     /**
@@ -236,9 +254,9 @@ class GdPrinter
         }
 
         if ($ext == 'jpg' || $ext == 'jpeg') {
-            $cardImage = imagecreatefromjpeg($this->image);
+            $cardImage = \imagecreatefromjpeg($this->image);
         } elseif ($ext = 'png') {
-            $cardImage = imagecreatefrompng($this->image);
+            $cardImage = \imagecreatefrompng($this->image);
         } else {
             throw new \Exception('unknown format');
         }
@@ -258,14 +276,14 @@ class GdPrinter
         imagecopyresized(
             $this->gdResource,
             $cardImage,
-            $imageAreaStartX,
-            $imageAreaStartY,
-            $srcX,
-            $srcY,
-            $imageAreaWidth,
-            $imageAreaHeight,
-            $src2w,
-            $src2h
+            (int)$imageAreaStartX,
+            (int)$imageAreaStartY,
+            (int)$srcX,
+            (int)$srcY,
+            (int)$imageAreaWidth,
+            (int)$imageAreaHeight,
+            (int)$src2w,
+            (int)$src2h
         );
         imagedestroy($cardImage);
     }
@@ -281,8 +299,8 @@ class GdPrinter
             imagecopyresized(
                 $this->gdResource,
                 $cardLayer,
-                (2 * $src2w - $this->cardWidth) / -2,
-                (2 * $src2h - $this->cardHeight) / -2,
+                intval((2 * $src2w - $this->cardWidth) / -2),
+                intval((2 * $src2h - $this->cardHeight) / -2),
                 0,
                 0,
                 2 * $src2w,
@@ -294,8 +312,8 @@ class GdPrinter
             imagecopy(
                 $this->gdResource,
                 $cardLayer,
-                ($src2w - $this->cardWidth) / -2,
-                ($src2h - $this->cardHeight) / -2,
+                intval(($src2w - $this->cardWidth) / -2),
+                intval(($src2h - $this->cardHeight) / -2),
                 0,
                 0,
                 $src2w,

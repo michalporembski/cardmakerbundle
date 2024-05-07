@@ -13,33 +13,33 @@ class QuestReward extends AbstractCard
 {
     protected $layerFile = 'quest_reward';
 
-    protected $imageAreaStartX = 20;
+    protected int $imageAreaStartX = 20;
 
-    protected $imageAreaStartY = 110;
+    protected int $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 415;
+    protected int $imageAreaWidth = 415;
 
-    protected $imageAreaHeight = 340;
+    protected int $imageAreaHeight = 340;
 
-    protected $titleHeight = 87;
+    protected int $titleHeight = 87;
 
-    protected $tagHeight = -999;
+    protected int $tagHeight = -999;
 
-    protected $descriptionHeight = 150;
+    protected int $descriptionHeight = 150;
 
-    protected $cardLevelX = 390;
+    protected int $cardLevelX = 390;
 
-    protected $cardLevelY = 670;
+    protected int $cardLevelY = 670;
 
-    protected $maxTitleWidth = 370;
+    protected int $maxTitleWidth = 370;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
+    protected int $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 999;
+    protected int $dummyTriangleStart = 999;
 
     protected $displayLevel = false;
 

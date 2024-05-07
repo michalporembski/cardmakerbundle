@@ -10,33 +10,33 @@ class Info extends AbstractCard
 
     protected $cardHeight = 1200;
 
-    protected $imageAreaStartX = 20;
+    protected int $imageAreaStartX = 20;
 
-    protected $imageAreaStartY = 110;
+    protected int $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 415;
+    protected int $imageAreaWidth = 415;
 
-    protected $imageAreaHeight = 340;
+    protected int $imageAreaHeight = 340;
 
-    protected $titleHeight = 200;
+    protected int $titleHeight = 200;
 
-    protected $tagHeight = 444;
+    protected int $tagHeight = 444;
 
-    protected $descriptionHeight = 115;
+    protected int $descriptionHeight = 115;
 
-    protected $cardLevelX = 390;
+    protected int $cardLevelX = 390;
 
-    protected $cardLevelY = 670;
+    protected int $cardLevelY = 670;
 
-    protected $maxTitleWidth = 370;
+    protected int $maxTitleWidth = 370;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 1000;
+    protected int $maxWriteHeight = 1000;
 
-    protected $dummyTriangleStart = 9999;
+    protected int $dummyTriangleStart = 9999;
 
     protected $displayLevel = false;
 

@@ -13,33 +13,33 @@ class Vampire extends AbstractCard
 {
     protected $layerFile = 'vampire_b';
 
-    protected $imageAreaStartX = 20;
+    protected int $imageAreaStartX = 20;
 
-    protected $imageAreaStartY = 110;
+    protected int $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 415;
+    protected int $imageAreaWidth = 415;
 
-    protected $imageAreaHeight = 340;
+    protected int $imageAreaHeight = 340;
 
-    protected $titleHeight = 85;
+    protected int $titleHeight = 85;
 
-    protected $tagHeight = 444;
+    protected int $tagHeight = 444;
 
-    protected $descriptionHeight = 465;
+    protected int $descriptionHeight = 465;
 
-    protected $cardLevelX = 390;
+    protected int $cardLevelX = 390;
 
-    protected $cardLevelY = 670;
+    protected int $cardLevelY = 670;
 
-    protected $maxTitleWidth = 380;
+    protected int $maxTitleWidth = 380;
 
-    protected $maxTagWidth = 230;
+    protected int $maxTagWidth = 230;
 
-    protected $maxCaptionWidth = 380;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
+    protected int $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 560;
+    protected int $dummyTriangleStart = 560;
 
     protected $displayLevel = false;
 }

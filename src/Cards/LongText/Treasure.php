@@ -12,22 +12,22 @@ class Treasure extends AbstractCard
 {
     protected $layerFile = 'treasure_a';
 
-    protected $imageAreaStartX = 25;
-    protected $imageAreaStartY = 110;
-    protected $imageAreaWidth = 410;
-    protected $imageAreaHeight = 240;
+    protected int $imageAreaStartX = 25;
+    protected int $imageAreaStartY = 110;
+    protected int $imageAreaWidth = 410;
+    protected int $imageAreaHeight = 240;
 
-    protected $titleHeight = 85;
-    protected $tagHeight = 337;
-    protected $descriptionHeight = 350;
+    protected int $titleHeight = 85;
+    protected int $tagHeight = 337;
+    protected int $descriptionHeight = 350;
 
-    protected $cardLevelX = 390;
-    protected $cardLevelY = 673;
+    protected int $cardLevelX = 390;
+    protected int $cardLevelY = 673;
 
-    protected $maxTitleWidth = 370;
-    protected $maxTagWidth = 210;
-    protected $maxCaptionWidth = 380;
+    protected int $maxTitleWidth = 370;
+    protected int $maxTagWidth = 210;
+    protected int $maxCaptionWidth = 380;
 
-    protected $maxWriteHeight = 670;
-    protected $dummyTriangleStart = 560;
+    protected int $maxWriteHeight = 670;
+    protected int $dummyTriangleStart = 560;
 }

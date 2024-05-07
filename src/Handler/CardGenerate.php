@@ -87,7 +87,7 @@ class CardGenerate implements CardGenerateInterface
     public function handle(GenerateCardCommand $generateCardCommand)
     {
         $path = $this->getCardPath($this->buildCardHash($generateCardCommand));
-        if (file_exists($path)) {
+        if ($path && file_exists($path)) {
             return $path;
         }
         $layoutSize = $this->getLayoutSize($generateCardCommand);
@@ -108,7 +108,7 @@ class CardGenerate implements CardGenerateInterface
         $card->setStory(explode(PHP_EOL, $generateCardCommand->getStory()));
         if (!$generateCardCommand->getImage()) {
             //TODO: temporary upload; use previously uploaded file
-            $card->setImage('../var/cardmaker/placeholder.jpg');
+            $card->setImage(__DIR__.'/../../assets/placeholder.jpg');
         } else {
             $card->setImage($generateCardCommand->getImage());
         }
@@ -139,13 +139,13 @@ class CardGenerate implements CardGenerateInterface
      *
      * @return string|null
      */
-    protected function getCardPath($name)
+    protected function getCardPath(?string $name):?string
     {
         if (!$name) {
             return null;
         }
 
-        return './generated/' . $name . '.png';
+        return __DIR__.'/../../tmp/generated/' . $name . '.png';
     }
 
     /**

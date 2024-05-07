@@ -13,21 +13,21 @@ class Adventures extends AbstractCard
 {
     protected $layerFile = 'adventures_a';
 
-    protected $imageAreaStartX = 30;
+    protected int $imageAreaStartX = 30;
 
-    protected $imageAreaStartY = 110;
+    protected int $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 405;
+    protected int $imageAreaWidth = 405;
 
-    protected $imageAreaHeight = 235;
+    protected int $imageAreaHeight = 235;
 
-    protected $titleHeight = 85;
+    protected int $titleHeight = 85;
 
-    protected $tagHeight = 330;
+    protected int $tagHeight = 330;
 
-    protected $descriptionHeight = 355;
+    protected int $descriptionHeight = 355;
 
-    protected $cardLevelX = 388;
+    protected int $cardLevelX = 388;
 
-    protected $cardLevelY = 670;
+    protected int $cardLevelY = 670;
 }
