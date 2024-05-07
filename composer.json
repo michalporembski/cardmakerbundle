@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "license": "MIT",
     "extra": {
-        "installer-name": "ModuleName"
+        "installer-name": "CardMaker"
     },
     "require": {
         "php": ">=8.2",

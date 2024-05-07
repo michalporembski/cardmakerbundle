@@ -4,5 +4,5 @@ services:
     autoconfigure: true
     public: true
 
-  MPorembski\SampleModule\Controller\:
+  MPorembski\CardMaker\Controller\:
     resource: '../../src/Controller'
